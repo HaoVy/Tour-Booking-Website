@@ -1,0 +1,44 @@
+<style>
+    body {
+        margin-top: 20px;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="text-center">
+            <h1>Hóa Đơn</h1>
+        </div>
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tên Khách Hàng</th>
+                    <th style="text-align: center">Mã Hóa Đơn</th>
+                    <th style="text-align: center">Tên Tour</th>
+                    <th class="text-center" style="text-align: center">SĐT</th>
+                    <th class="text-center" style="text-align: center">Giá Tour</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-md-9">{{user.fullname}}</td>
+                    <td class="col-md-1" style="text-align: center">{{receipt._id}}</td>
+                    <td class="col-md-1" style="text-align: center">{{tour.Ten_Tour}}</td>
+                    <td class="col-md-1 text-center" style="text-align: center">{{user.phone}}</td>
+                    <td class="col-md-1 text-center" style="text-align: center">{{tour.Gia_Tour}}</td>
+                </tr>
+
+                <td class="text-right">
+                    <h4><strong>Đã Thanh Toán: </strong></h4>
+                </td>
+                <td class="text-center text-danger">
+                    <h4><strong>{{tour.Gia_Tour}}VNĐ</strong></h4>
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

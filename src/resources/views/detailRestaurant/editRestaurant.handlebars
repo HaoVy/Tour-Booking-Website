@@ -1,0 +1,35 @@
+<style>
+    .btn-primary {
+        margin-bottom: 15px;
+    }
+
+    .tiltle-page {
+        margin-top: 60px;
+    }
+
+</style>
+
+
+<div class="mt-4">
+    <h3 class="tiltle-page">Chỉnh Sửa Thông Tin Nhà Hàng</h3>
+    <form method="POST" action="/restaurant/{{restaurant._id}}?_method=PUT">
+        <div style="background-color: #a1a8c3; border-radius: 15px; padding: 30px; color: black;">
+            <div class="form-group">
+                <label for="Ten_NH">Tên Nhà Hàng</label>
+                <input type="text" class="form-control" style="background-color: #bfc4d7; border: unset;" value="{{restaurant.Ten_NH}}" id="Ten_NH" name="Ten_NH">
+            </div>
+            <div class="form-group">
+                <label for="DiaDiemNH">Địa Chỉ Nhà Hàng</label>
+                <input type="text" class="form-control" style="background-color: #bfc4d7; border: unset;" value="{{restaurant.DiaDiemNH}}" id="DiaDiemNH"
+                    name="DiaDiemNH">
+            </div>
+            <div class="form-group">
+                <label for="Ngay">Thời Gian</label>
+                <input type="text" class="form-control" style="background-color: #bfc4d7; border: unset;" value="{{restaurant.Ngay}}" id="Ngay" name="Ngay">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Lưu</button>
+        </div>
+    </form>
+
+</div>

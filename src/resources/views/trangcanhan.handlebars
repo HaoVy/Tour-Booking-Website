@@ -1,0 +1,17 @@
+
+<h2>Đăng nhập thành công</h2>
+<p>{{user.username}}</p>
+<p>{{user.address}}</p>
+<p>{{user.phonenumber}}</p>
+<p>{{user.email}}</p>
+<p class="admin">{{user.admin}}</p>
+<a id="link" href="/" style="font-weight: bolder;">Click vào đây để tiếp tục</a>
+
+<script>
+    if (document.querySelector(".admin").innerHTML == "true") {
+        document.getElementById("link").href = "/tour/list"
+    }
+    else {
+        document.getElementById("link").href = "/"
+    }
+</script>

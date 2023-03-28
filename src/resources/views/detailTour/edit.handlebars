@@ -1,0 +1,62 @@
+<style>
+    .btn-primary {
+        margin-bottom: 15px;
+    }
+
+    .tiltle-page {
+        margin-top: 60px;
+    }
+</style>
+
+
+<div class="mt-4">
+    <h3 class="tiltle-page">Chỉnh Sửa Tour Du Lịch</h3>
+    <form method="POST" action="/tour/{{tour._id}}?_method=PUT">
+        <div style="background-color: #a1a8c3; border-radius: 15px; padding: 30px; color: black;">
+            <div class="form-group">
+                <label for="Ten_Tour">Tên Tour</label>
+                <input type="text" class="form-control" style="background-color: #bfc4d7; border: unset;" value="{{tour.Ten_Tour}}" id="Ten_Tour" name="Ten_Tour">
+            </div>
+            <div class="form-group">
+                <label for="MoTa_Tour">Mô Tả Tour</label>
+                <textarea class="form-control" id="MoTa_Tour" style="background-color: #bfc4d7; border: unset;" name="MoTa_Tour">{{tour.MoTa_Tour}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="Gia_Tour">Giá Tour</label>
+                <input type="text" class="form-control" style="background-color: #bfc4d7; border: unset;" value="{{tour.Gia_Tour}}" id="Gia_Tour" name="Gia_Tour">
+            </div>
+            <div class="form-group">
+                <label for="Loai_Tour">Loại Tour</label>
+                <input type="text" class="form-control" style="background-color: #bfc4d7; border: unset;" value="{{tour.Loai_Tour}}" id="Loai_Tour" name="Loai_Tour">
+            </div>
+            <div class="form-group">
+                <label for="DiaDiemTour">Địa Điểm Tour</label>
+                <input type="text" class="form-control" style="background-color: #bfc4d7; border: unset;" value="{{tour.DiaDiemTour}}" id="DiaDiemTour"
+                    name="DiaDiemTour">
+            </div>
+            <div class="form-group">
+                <label for="PhuongTien">Phương Tiện Di Chuyển</label>
+                <input type="text" class="form-control" style="background-color: #bfc4d7; border: unset;" value="{{tour.PhuongTien}}" id="PhuongTien" name="PhuongTien">
+            </div>
+            <div class="form-group">
+                <label for="Anh_Bia">Hình Ảnh Tour</label>
+                <input type="text" class="form-control" style="background-color: #bfc4d7; border: unset;" value="{{tour.Anh_Bia}}" id="Anh_Bia" name="Anh_Bia">
+            </div>
+            <div class="form-group">
+                <label for="NgayBD">Ngày Đi</label>
+                <input type="text" class="form-control" style="background-color: #bfc4d7; border: unset;" value="{{tour.NgayBD}}" id="NgayBD" name="NgayBD">
+            </div>
+            <div class="form-group">
+                <label for="NgayKT">Ngày Về</label>
+                <input type="text" class="form-control" style="background-color: #bfc4d7; border: unset;" value="{{tour.NgayKT}}" id="NgayKT" name="NgayKT">
+            </div>
+            <div class="form-group">
+                <label for="SL_KH">Số Lượng Khách Tối Đa</label>
+                <input type="text" class="form-control" style="background-color: #bfc4d7; border: unset;" value="{{tour.SL_KH}}" id="SL_KH" name="SL_KH">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Lưu</button>
+        </div>
+    </form>
+
+</div>

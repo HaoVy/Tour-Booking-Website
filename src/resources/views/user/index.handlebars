@@ -1,0 +1,121 @@
+<style>
+    .title-ds {
+        margin-top: 20px;
+    }
+    a:hover {
+        text-decoration: none !important;
+    }
+</style>
+
+
+<div class="mt-4 col-lg-12">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" style="background-color: #a1a8c3;">
+            Quản Lý
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/tour/list">Danh Sách Tour</a>
+            <a class="dropdown-item" href="/hotel/listHotel">Danh Sách Khách Sạn</a>
+            <a class="dropdown-item" href="/restaurant/listRestaurant">Danh Sách Nhà Hàng</a>
+            <a class="dropdown-item" href="/user/index">Danh Sách Tài Khoản</a>
+            <a class="dropdown-item" href="/purchase/list">Danh Sách Hóa Đơn</a>
+        </div>
+    </div>
+    <h3 class="title-ds">Danh Sách Tour</h3>
+    <table class="table" style="background-color: #a1a8c3; border-radius: 15px; padding: 30px; color: black;">
+        <thead>
+            <tr style="text-align: center;">
+                <th scope="col">#</th>
+                <th scope="col">
+                    Tên tài khoản
+                    {{{sortable 'username' _sort}}}
+                </th>
+                <th scope="col">
+                    email
+                    {{{sortable 'email' _sort}}}
+                </th>
+                <th scope="col">
+                    sđt
+                    {{{sortable 'phone' _sort}}}
+                </th>
+                <th scope="col">
+                    Địa chỉ
+                    {{{sortable 'address' _sort}}}
+                </th>
+                <th scope="col">Chọn điều chỉnh</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each user}}
+            <tr style="text-align: center;">
+                <th scope="row">{{sum @index 1}}</th>
+                <td>{{this.username}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.phone}}</td>
+                <td>{{this.address}}</td>
+                <td>
+                    <a href="" class="btn btn-link" data-toggle="modal" data-id="{{this._id}}"
+                        data-target="#dlt-tour" style="color: red;">Xóa</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+
+
+{{!-- Confirm delete --}}
+<div id="dlt-tour" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Xóa Tài Khoản</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có đồng ý xóa tài khoản này</p>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-dlt-tour" type="button" class="btn btn-danger">Đồng Ý</button>
+                <button type="button" class="btn btn-safe" data-dismiss="modal">Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{{!-- del hidden form --}}
+<form name="dlt-tour-form" method="POST"></form>
+
+
+
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var tourID;
+        var delForm = document.forms['dlt-tour-form'];
+        var btnDltTour = document.getElementById('btn-dlt-tour');
+
+        $('#dlt-tour').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            tourID = button.data('id');
+        });
+
+
+
+        btnDltTour.onclick = function () {
+            alert(tourID);
+            delForm.action = '/user/' + tourID + '?_method=DELETE';
+            delForm.submit();
+        }
+
+    });
+
+
+</script>

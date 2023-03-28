@@ -1,0 +1,65 @@
+<style>
+    .card-img-top {
+        max-width: 500px;
+        max-height: 600px;
+        margin-bottom: 16px;
+    }
+
+    .tt-tour {
+        font-weight: bold;
+    }
+
+    .btn-Order {
+        background-color: #163A6B;
+    }
+
+    .contain-detail {
+        padding: 30px;
+        background-color: #a1a8c3;
+        border-radius: 15px;
+        display: block;
+    }
+</style>
+
+
+<div class="" style="margin: 50px;">
+    <div class="row" style="color: #0C1E38;">
+
+        <div class="col-lg-6 mt-4">
+            <img src="{{tour.Anh_Bia}}" style="border-radius: 20px;" class="card-img-top">
+            <form method="POST" action="/purchase/purchased">
+                <span>Tôi đồng ý thanh toán</span>
+                <input type="checkbox" value="{{tour._id}}" name="tour" />
+                <button class="btn btn-primary">{{tour.Gia_Tour}}</button>
+            </form>
+        </div>
+
+        <div class="col-lg-6 contain-detail mt-4">
+            <h2>{{tour.Ten_Tour}}</h2>
+            <p style="word-break: break-word;">{{tour.MoTa_Tour}}</p>
+            <div class="dropdown-divider"></div>
+            <p class="tt-tour">Phương Tiện Di Chuyển:</p>
+            <p> {{tour.PhuongTien}}</p>
+            <div class="dropdown-divider"></div>
+            <p class="tt-tour">Giá Tour:</p>
+            <p> {{tour.Gia_Tour}}</p>
+            <div class="dropdown-divider"></div>
+            <p class="tt-tour">Ngày Khởi Hành: {{tour.NgayBD}}</p>
+            <p class="tt-tour">Ngày Về: {{tour.NgayKT}}</p>
+            <div class="dropdown-divider"></div>
+            <p class="tt-tour">Khách Sạn:</p>
+            <p>{{hotel.Ten_KS}}</p>
+            <div class="dropdown-divider"></div>
+            <p class="tt-tour">Danh Sách Nhà Hàng Trong Tour:</p>
+            {{#each restaurant}}
+            <p>{{this.Ten_NH}}</p>
+            {{/each}}
+
+        </div>
+
+
+
+
+
+    </div>
+</div>

@@ -1,0 +1,164 @@
+<style>
+  .rent-item {
+    padding: 30px;
+    text-align: center;
+    background: var(--light);
+    transition: .5s;
+  }
+
+  .rent-item:hover,
+  .rent-item.active {
+    background: var(--secondary);
+  }
+
+  .rent-item h4 {
+    transition: .5s;
+  }
+
+  .rent-item:hover h4,
+  .rent-item.active h4 {
+    color: var(--light);
+  }
+
+  .owl-item.center .team-item h4,
+  .owl-item.center .rent-item h4 {
+    color: var(--light);
+  }
+
+  .owl-item.center .team-item .team-social,
+  .owl-item.center .rent-item {
+    background: var(--secondary);
+  }
+
+  .rent-item:hover {
+    background-color: #120f2d;
+  }
+
+  body {
+    font-family: "Lato", sans-serif;
+  }
+
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {
+      padding-top: 15px;
+    }
+
+    .sidenav a {
+      font-size: 18px;
+    }
+  }
+
+  .sidebar li a .nav-label,
+  .sidebar li a .nav-label+span {
+    transition: all 0.5s ease-in-out
+  }
+
+
+  .sidebar.fliph li a .nav-label,
+  .sidebar.fliph li a .nav-label+span {
+    display: none;
+    transition: all 0.5s ease-in-out
+  }
+
+  .sidebar.fliph {
+    width: 42px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .sidebar ul li .sub-menu li a:hover {
+    background-color: rgb(0, 3, 23);
+    padding-left: 20px;
+    transition: all 0.5s ease-in-out
+  }
+
+  .sub-menu {
+    border-left: 5px solid #332f58;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark"
+  style="opacity: 0.96; justify-content: center; position: sticky; top: 0px; box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.556); z-index: 10;">
+  <div style="margin-left: 10px;">
+    <div id="mySidenav" class="sidenav" style="background-color: #03020a; opacity: 0.95;">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+      <a class="nav-link" href="/">Trang chủ<span class="sr-only">(current)</span></a>
+
+      <div class="dropdown-divider"></div>
+      <a class="nav-link" href="/auth/user">Đăng nhập</a>
+      <a class="nav-link" href="/auth/logout">Đăng xuất</a>
+    </div>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  </div>
+
+  <div style="margin-left: 30px;">
+    <a class="navbar-brand" href="/">RavFea Travel</a>
+  </div>
+
+  <div>
+    <a href="">{{user.username}}</a>
+  </div>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <form action=""></form>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" id="khangqq">
+      <input class="form-control mr-sm-2" type="search" placeholder="TÌM KIẾM" aria-label="TIỀM KIẾM" id="search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="btn-search">TÌM KIẾM</button>
+    </form>
+  </div>
+</nav>
+
+
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+
+  $(document).ready(function () {
+    $('.button-left').click(function () {
+      $('.sidebar').toggleClass('fliph');
+    });
+
+  });
+
+</script>

@@ -1,0 +1,32 @@
+<style>
+    .btn-primary{
+        margin-bottom: 15px;
+    }
+
+    .tiltle-page{
+        margin-top: 60px;
+    }
+
+    label{
+        font-weight: bolder;
+    }
+
+</style>
+
+
+<div class="mt-4">
+    <h3 class="tiltle-page" >Thêm Khách Sạn</h3>
+    <form method="POST" action="/hotel/storeHotel">
+    <div class="form-group">
+        <label for="Ten_KS">Tên Khách Sạn:</label>
+        <input type="text" class="form-control" id="Ten_KS" name="Ten_KS">
+    </div>
+
+    <div class="form-group">
+        <label for="DiaDiemKS">Địa Chỉ:</label>
+        <input type="text" class="form-control" id="DiaDiemKS" name="DiaDiemKS">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Thêm Khách Sạn Mới</button>
+    </form>
+</div>

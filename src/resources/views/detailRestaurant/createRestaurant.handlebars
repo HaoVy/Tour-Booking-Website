@@ -1,0 +1,33 @@
+<style>
+    .btn-primary{
+        margin-bottom: 15px;
+    }
+
+    .tiltle-page{
+        margin-top: 60px;
+    }
+
+</style>
+
+
+<div class="mt-4 col-lg-12">
+    <h3 class="tiltle-page" >Thêm Nhà Hàng</h3>
+    <form method="POST" action="/restaurant/storeRestaurant">
+    <div class="form-group">
+        <label for="Ten_NH">Tên Nhà Hàng</label>
+        <input type="text" class="form-control" id="Ten_NH" name="Ten_NH">
+    </div>
+
+    <div class="form-group">
+        <label for="DiaDiemNH">Địa Chỉ</label>
+        <input type="text" class="form-control" id="DiaDiemNH" name="DiaDiemNH">
+    </div>
+
+    <div class="form-group">
+        <label for="Ngay">Thời gian</label>
+        <input type="text" class="form-control" id="Ngay" name="Ngay">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Thêm Nhà Hàng Mới</button>
+    </form>
+</div>

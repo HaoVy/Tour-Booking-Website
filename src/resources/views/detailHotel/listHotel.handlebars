@@ -1,0 +1,116 @@
+<style>
+    .title-ds {
+        margin-top: 30px;
+    }
+    a:hover {
+        text-decoration: none !important;
+    }
+</style>
+
+
+<div class="mt-4 col-lg-12">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" style="background-color: #a1a8c3;">
+            Quản Lý
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="/tour/list">Danh Sách Tour</a>
+            <a class="dropdown-item" href="/hotel/listHotel">Danh Sách Khách Sạn</a>
+            <a class="dropdown-item" href="/restaurant/listRestaurant">Danh Sách Nhà Hàng</a>
+            <a class="dropdown-item" href="/user/index">Danh Sách Tài Khoản</a>
+            <a class="dropdown-item" href="/purchase/list">Danh Sách Hóa Đơn</a>
+        </div>
+    </div>
+    <h3 class="title-ds">Danh Sách Khách Sạn</h3>
+    <table class="table" style="background-color: #a1a8c3; border-radius: 15px; padding: 30px; color: black;">
+        <thead>
+            <tr style="text-align: center;">
+                <th scope="col">#</th>
+                <th scope="col">ID Khách Sạn</th>
+                <th scope="col">
+                    Tên Khách Sạn
+                    {{{sortable 'Ten_KS' _sort}}}
+                </th>
+                <th scope="col">
+                    Địa Chỉ Khách Sạn
+                    {{{sortable 'DiaDiemKS' _sort}}}
+                </th>
+                <th scope="col">Chọn Điều Chỉnh</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {{#each hotel}}
+            <tr style="text-align: center;">
+                <th scope="row">{{sum @index 1}}</th>
+                <td>{{this._id}}</td>
+                <td>{{this.Ten_KS}}</td>
+                <td>{{this.DiaDiemKS}}</td>
+                <td>
+                    <a href="/hotel/{{this._id}}/editHotel" class="btn btn-link" style="color: green;">Sửa</a>
+                    <a href="" class="btn btn-link" data-toggle="modal" data-id="{{this._id}}"
+                        data-target="#dlt-hotel" style="color: red;">Xóa</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <div>
+        <a class="btn btn-primary px-3" href="/hotel/createHotel" style="font-weight: bolder;">Thêm Khách Sạn</a>
+    </div>
+</div>
+
+{{!-- Confirm delete --}}
+<div id="dlt-hotel" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Xóa Khách Sạn</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có đồng ý xóa khách sạn này</p>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-dlt-hotel" type="button" class="btn btn-danger">Đồng Ý</button>
+                <button type="button" class="btn btn-safe" data-dismiss="modal">Hủy</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{{!-- del hidden form --}}
+<form name="dlt-hotel-form" method="POST"></form>
+
+
+
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var hotelID;
+        var delForm = document.forms['dlt-hotel-form'];
+        var btnDltTour = document.getElementById('btn-dlt-hotel');
+
+        $('#dlt-hotel').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            hotelID = button.data('id');
+        });
+
+
+
+        btnDltTour.onclick = function(){
+            alert(hotelID);
+            delForm.action = '/hotel/' + hotelID + '?_method=DELETE';
+            delForm.submit();
+        }
+
+    });
+
+
+</script>

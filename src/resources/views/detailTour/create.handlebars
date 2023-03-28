@@ -1,0 +1,58 @@
+<style>
+    .btn-primary{
+        margin-bottom: 15px;
+    }
+
+    .tiltle-page{
+        margin-top: 60px;
+    }
+    
+    label{
+        font-weight: bolder;
+    }
+
+</style>
+
+
+<div class="mt-4 col-lg-12">
+    <h3 class="tiltle-page" >Đăng Tour Du Lịch:</h3>
+    <form method="POST" action="/tour/store">
+    <div class="form-group">
+        <label for="Ten_Tour">Tên Tour:</label>
+        <input type="text" class="form-control" id="Ten_Tour" name="Ten_Tour">
+    </div>
+    <div class="form-group">
+        <label for="MoTa_Tour">Mô Tả Tour:</label>
+        <textarea class="form-control" id="MoTa_Tour" name="MoTa_Tour"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="Gia_Tour">Giá Tour:</label>
+        <input type="text" class="form-control" id="Gia_Tour" name="Gia_Tour">
+    </div>
+    <div class="form-group">
+        <label for="Loai_Tour">Loại Tour:</label>
+        <input type="text" class="form-control" id="Loai_Tour" name="Loai_Tour">
+    </div>
+    <div class="form-group">
+        <label for="DiaDiemTour">Địa Điểm Tour:</label>
+        <input type="text" class="form-control" id="DiaDiemTour" name="DiaDiemTour">
+    </div>
+    <div class="form-group">
+        <label for="PhuongTien">Phương Tiện Di Chuyển:</label>
+        <input type="text" class="form-control" id="PhuongTien" name="PhuongTien">
+    </div>
+    <div class="form-group">
+        <label for="Anh_Bia">Hình Ảnh Tour:</label>
+        <input type="text" class="form-control" id="Anh_Bia" name="Anh_Bia">
+    </div>
+    <div class="form-group">
+        <label for="NgayBD">Ngày Đi:</label>
+        <input type="text" class="form-control" id="NgayBD" name="NgayBD">
+    </div>
+    <div class="form-group">
+        <label for="NgayKT">Ngày Về:</label>
+        <input type="text" class="form-control" id="NgayKT" name="NgayKT">
+    </div>
+    <button type="submit" class="btn btn-primary">Thêm Tour Du Lịch Mới</button>
+    </form>
+</div>

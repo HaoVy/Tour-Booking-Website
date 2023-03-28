@@ -1,0 +1,28 @@
+<style>
+    .btn-primary{
+        margin-bottom: 15px;
+    }
+
+    .tiltle-page{
+        margin-top: 60px;
+    }
+
+</style>
+
+
+<div class="mt-4">
+    <h3 class="tiltle-page" >Chỉnh Sửa Thông Tin Khách Sạn</h3>
+    <form method="POST" action="/hotel/{{hotel._id}}?_method=PUT">
+    <div class="form-group">
+        <label for="Ten_KS">Tên Khách Sạn</label>
+        <input type="text" class="form-control" value="{{hotel.Ten_KS}}" id="Ten_KS" name="Ten_KS">
+    </div>
+    <div class="form-group">
+        <label for="DiaDiemKS">Địa Chỉ Khách Sạn</label>
+        <input type="text" class="form-control" value="{{hotel.DiaDiemKS}}" id="DiaDiemKS" name="DiaDiemKS">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Lưu</button>
+    </form>
+
+</div>
